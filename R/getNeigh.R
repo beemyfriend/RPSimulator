@@ -12,9 +12,9 @@ getNeigh <- function(g, threshold = 3){
     if(!any(x >= threshold)) return(0)
 
     #get neighborhood's max color
-    maxNeigh = which(x == max(x))
+    maxNeigh = which(x >= threshold)
 
-    #if multiple color is max, select random max
+    #if multiple color is greater than threshold, select random
     maxNeigh <- sample(names(maxNeigh), 1)
 
     return(maxNeigh)

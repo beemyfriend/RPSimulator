@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # RPSimulator
 
-The goal of RPSimulator is to mimic (Andrew Webb's RPS simulation)[https://github.com/grey-area/rps-automata]
+The goal of RPSimulator is to mimic [Andrew Webb's RPS simulation](https://github.com/grey-area/rps-automata)
 
 ## Installation
 
@@ -38,8 +38,28 @@ set.seed(1)
 sim <- RPSimulator::runRPS(nrow = 100,
                            ncol = 100,
                            nclr = nclr,
-                           iterations = 100,
+                           iterations = 150,
                            threshold = 3)
+```
+
+Before we attempt to create an animation. Let's check that the simulation is interesting by sampling different rasters from the raster list. If you do not like the outcome, then change the seed number above. 
+
+```{r, check, eval = F}
+#unique color for each clr
+cols = hsv(seq(1/nclr, 1, length.out = nclr))
+
+raster::plot(sim[[1]], main = 1, col = cols)
+raster::plot(sim[[50]], main = 50, col = cols)
+raster::plot(sim[[100]], main = 100, col = cols)
+raster::plot(sim[[150]], main = 150, col = cols)
+```
+
+![Sample of rasters at iterations 1, 50, 100, and 150](exampleCheck.png)
+
+Don't forget to reset the graphics parameter by turning off the graphics device. 
+
+```{r devoff, eval=F}
+dev.off()
 ```
 
 ```{r examplePlot, eval = F}
