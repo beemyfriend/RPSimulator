@@ -1,3 +1,12 @@
+#'Get new Value for each cell
+#'
+#'Determines the color of each cell from its neighbors
+#'
+#'@param rast the raster being inspected
+#'@param neigh results of getNeigh()
+#'@param nclr number of colors used in simulation
+#'
+#'@return a vector of color integers representing colors
 getNewVal <- function(rast, neigh, nclr = 3){
   purrr::map2_dbl(rast[1:raster::ncell(rast)],
                   neigh,

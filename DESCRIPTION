@@ -7,9 +7,13 @@ Authors@R:
            role = c("aut", "cre"),
            email = "beemyfriend@gmail.com")
 Description: What the package does (one paragraph).
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+    animation,
+    grDevices,
     purrr,
-    raster
+    raster,
+    stats
+RoxygenNote: 7.0.2
